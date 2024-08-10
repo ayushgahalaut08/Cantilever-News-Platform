@@ -7,8 +7,8 @@
 }
 
 :root {
-    --primary-text-color: #183b56;
-    --secondary-text-color: #6396ae;
+    --primary-text-color: #FFFFFF;
+    --secondary-text-color: #5A5A5A;
     --accent-color: #2294ed;
     --accent-color-dark: #1d69a3;
 }
@@ -16,6 +16,7 @@
 body {
     font-family: "Poppins", sans-serif;
     color: var(--primary-text-color);
+    background-color: #111010;
 }
 
 p {
@@ -44,7 +45,7 @@ ul {
 }
 
 nav {
-    background-color: #f3faff;
+    background-color: #181717;
     box-shadow: 0 0 4px #4a5c6a;
     position: fixed;
     top: 0;
@@ -128,9 +129,9 @@ main {
     width: 360px;
     min-height: 400px;
     box-shadow: 0 0 4px #d4ecff;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
-    background-color: #fff;
+    background-color: #181717;
     overflow: hidden;
     transition: all 0.3s ease;
 }
@@ -141,10 +142,34 @@ main {
     transform: translateY(-2px);
 }
 
+/*
 .card-header img {
     width: 100%;
     height: 180px;
     object-fit: cover;
+}
+*/
+
+.card-header {
+    position: relative; /* Required for the pseudo-element positioning */
+    overflow: hidden; /* Ensures the gradient stays within the bounds */
+}
+
+.card-header img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-header::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Absolute positioning */
+    bottom: 0; /* Align at the bottom */
+    left: 0;
+    width: 100%;
+    height: 50%; /* Adjust as needed */
+    background: linear-gradient(to bottom, rgba(24, 23, 23, 0) 0%, rgba(24, 23, 23, 0.7) 100%);
+    pointer-events: none; /* Ensure it doesn’t interfere with user interactions */
 }
 
 .card-content {
